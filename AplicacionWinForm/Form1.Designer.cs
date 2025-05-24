@@ -34,12 +34,12 @@
             label2 = new Label();
             button3 = new Button();
             groupBox1 = new GroupBox();
-            label3 = new Label();
-            textBox1 = new TextBox();
-            label4 = new Label();
-            textBox2 = new TextBox();
+            lblResultado = new Label();
             button4 = new Button();
-            label5 = new Label();
+            txtNumB = new TextBox();
+            txtNumA = new TextBox();
+            label4 = new Label();
+            label3 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -92,10 +92,10 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(lblResultado);
             groupBox1.Controls.Add(button4);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtNumB);
+            groupBox1.Controls.Add(txtNumA);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Location = new Point(30, 243);
@@ -105,21 +105,38 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Operaciones";
             // 
-            // label3
+            // lblResultado
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(36, 47);
-            label3.Name = "label3";
-            label3.Size = new Size(62, 15);
-            label3.TabIndex = 0;
-            label3.Text = "Número A";
+            lblResultado.AutoSize = true;
+            lblResultado.Location = new Point(38, 132);
+            lblResultado.Name = "lblResultado";
+            lblResultado.Size = new Size(62, 15);
+            lblResultado.TabIndex = 3;
+            lblResultado.Text = "Resultado:";
             // 
-            // textBox1
+            // button4
             // 
-            textBox1.Location = new Point(120, 44);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 1;
+            button4.Location = new Point(275, 44);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 2;
+            button4.Text = "SUMAR";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // txtNumB
+            // 
+            txtNumB.Location = new Point(120, 86);
+            txtNumB.Name = "txtNumB";
+            txtNumB.Size = new Size(100, 23);
+            txtNumB.TabIndex = 1;
+            // 
+            // txtNumA
+            // 
+            txtNumA.Location = new Point(120, 44);
+            txtNumA.Name = "txtNumA";
+            txtNumA.Size = new Size(100, 23);
+            txtNumA.TabIndex = 1;
             // 
             // label4
             // 
@@ -130,30 +147,14 @@
             label4.TabIndex = 0;
             label4.Text = "Número B";
             // 
-            // textBox2
+            // label3
             // 
-            textBox2.Location = new Point(120, 86);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 1;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(275, 44);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 2;
-            button4.Text = "SUMAR";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(38, 132);
-            label5.Name = "label5";
-            label5.Size = new Size(62, 15);
-            label5.TabIndex = 3;
-            label5.Text = "Resultado:";
+            label3.AutoSize = true;
+            label3.Location = new Point(36, 47);
+            label3.Name = "label3";
+            label3.Size = new Size(62, 15);
+            label3.TabIndex = 0;
+            label3.Text = "Número A";
             // 
             // Form1
             // 
@@ -183,10 +184,10 @@
         private Label label2;
         private Button button3;
         private GroupBox groupBox1;
-        private Label label5;
+        private Label lblResultado;
         private Button button4;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtNumB;
+        private TextBox txtNumA;
         private Label label4;
         private Label label3;
     }
