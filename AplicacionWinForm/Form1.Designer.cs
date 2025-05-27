@@ -40,7 +40,18 @@
             txtNumA = new TextBox();
             label4 = new Label();
             label3 = new Label();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
+            tabPage3 = new TabPage();
+            label5 = new Label();
+            textBox1 = new TextBox();
+            button5 = new Button();
+            textBox2 = new TextBox();
+            label6 = new Label();
             groupBox1.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -156,12 +167,101 @@
             label3.TabIndex = 0;
             label3.Text = "Número A";
             // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
+            tabControl1.Location = new Point(459, 18);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(471, 625);
+            tabControl1.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(label6);
+            tabPage1.Controls.Add(textBox2);
+            tabPage1.Controls.Add(button5);
+            tabPage1.Controls.Add(textBox1);
+            tabPage1.Controls.Add(label5);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(463, 597);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "PepeMatic";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(463, 597);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new Size(463, 597);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "tabPage3";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(15, 21);
+            label5.Name = "label5";
+            label5.Size = new Size(163, 15);
+            label5.TabIndex = 0;
+            label5.Text = "Ingrese su programa (código)";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(28, 52);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(412, 200);
+            textBox1.TabIndex = 1;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(365, 272);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 2;
+            button5.Text = "Ejecutar";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(28, 335);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(412, 23);
+            textBox2.TabIndex = 3;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(28, 308);
+            label6.Name = "label6";
+            label6.Size = new Size(41, 15);
+            label6.TabIndex = 4;
+            label6.Text = "Salida:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(502, 675);
+            ClientSize = new Size(959, 675);
+            Controls.Add(tabControl1);
             Controls.Add(groupBox1);
             Controls.Add(button3);
             Controls.Add(label2);
@@ -172,6 +272,9 @@
             Text = "Super Aplicación 3000XD & Nukkles";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -190,5 +293,14 @@
         private TextBox txtNumA;
         private Label label4;
         private Label label3;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private Button button5;
+        private TextBox textBox1;
+        private Label label5;
+        private TabPage tabPage3;
+        private Label label6;
+        private TextBox textBox2;
     }
 }

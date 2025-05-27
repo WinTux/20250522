@@ -44,7 +44,7 @@ namespace AplicacionWinForm
             try
             {
                 string numeroAtexto = txtNumA.Text;
-                
+
 
                 // ¿cómo realizo la suma numérica?
                 //int numeroA = Convert.ToInt32(numeroAtexto);
@@ -66,6 +66,31 @@ namespace AplicacionWinForm
 
 
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            /*
+             10 comentarios
+             2X
+                20 leer
+                21 cargar (en memoria)
+             3X
+                30 escribir
+                31 escribir línea
+                32 escribir sin salto de línea
+             4X
+                41 suma
+                42 resta
+                43 multiplicación
+                44 división
+             */
+
+
+            // 2049
+            // 2149
+            // 4150
+            // 3148
         }
     }
 }
