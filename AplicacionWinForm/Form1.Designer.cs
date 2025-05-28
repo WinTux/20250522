@@ -42,13 +42,15 @@
             label3 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            textBox3 = new TextBox();
+            label7 = new Label();
+            label6 = new Label();
+            textBox2 = new TextBox();
+            button5 = new Button();
+            textBox1 = new TextBox();
+            label5 = new Label();
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
-            label5 = new Label();
-            textBox1 = new TextBox();
-            button5 = new Button();
-            textBox2 = new TextBox();
-            label6 = new Label();
             groupBox1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -180,6 +182,8 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(textBox3);
+            tabPage1.Controls.Add(label7);
             tabPage1.Controls.Add(label6);
             tabPage1.Controls.Add(textBox2);
             tabPage1.Controls.Add(button5);
@@ -192,6 +196,65 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "PepeMatic";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(114, 269);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(107, 23);
+            textBox3.TabIndex = 6;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(31, 272);
+            label7.Name = "label7";
+            label7.Size = new Size(36, 15);
+            label7.TabIndex = 5;
+            label7.Text = "LISTO";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(28, 308);
+            label6.Name = "label6";
+            label6.Size = new Size(41, 15);
+            label6.TabIndex = 4;
+            label6.Text = "Salida:";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(28, 335);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(412, 23);
+            textBox2.TabIndex = 3;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(365, 272);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 2;
+            button5.Text = "Ejecutar";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(28, 52);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(412, 200);
+            textBox1.TabIndex = 1;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(15, 21);
+            label5.Name = "label5";
+            label5.Size = new Size(163, 15);
+            label5.TabIndex = 0;
+            label5.Text = "Ingrese su programa (código)";
             // 
             // tabPage2
             // 
@@ -211,49 +274,6 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "tabPage3";
             tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(15, 21);
-            label5.Name = "label5";
-            label5.Size = new Size(163, 15);
-            label5.TabIndex = 0;
-            label5.Text = "Ingrese su programa (código)";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(28, 52);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(412, 200);
-            textBox1.TabIndex = 1;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(365, 272);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 2;
-            button5.Text = "Ejecutar";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(28, 335);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(412, 23);
-            textBox2.TabIndex = 3;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(28, 308);
-            label6.Name = "label6";
-            label6.Size = new Size(41, 15);
-            label6.TabIndex = 4;
-            label6.Text = "Salida:";
             // 
             // Form1
             // 
@@ -302,5 +322,7 @@
         private TabPage tabPage3;
         private Label label6;
         private TextBox textBox2;
+        private TextBox textBox3;
+        private Label label7;
     }
 }

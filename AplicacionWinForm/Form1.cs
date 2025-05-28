@@ -68,29 +68,82 @@ namespace AplicacionWinForm
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private async void button5_Click(object sender, EventArgs e)
         {
-            /*
-             10 comentarios
-             2X
-                20 leer
-                21 cargar (en memoria)
-             3X
-                30 escribir
-                31 escribir línea
-                32 escribir sin salto de línea
-             4X
-                41 suma
-                42 resta
-                43 multiplicación
-                44 división
-             */
+            int[] memoria = new int[100];
+            // llenar el arreglo a partir del textBox1
+            string[] lineas = textBox1.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            int contador = 0;
+            foreach (string line in lineas)
+                memoria[contador++] = int.Parse(line.Trim());
+            int linea = 0;
+            int acumulador = 0;
+            int instruccionActual, codOperacion, operando;
+            const int LEER = 10, ESCRIBIR = 11;
+            const int CARGAR = 20, ALMACENAR = 21;
+            const int SUMAR = 30, RESTAR = 31, MULTIPLICAR = 32, DIVIDIR = 33;
+            const int SALTAR = 40, SALTARNEG = 41, SALTARCERO = 42, ALTO = 43;
+            
+            while(linea >= 0){
+                instruccionActual = memoria[linea++];
+                codOperacion = instruccionActual / 100; //12
+                operando = instruccionActual % 100;//34
+                switch (codOperacion)
+                {
+                    case LEER:
+                        // Simular lectura de un número
+                        label7.Text="Ingrese un número:";
+                        // Esperar 5 segundos para que el usuario ingrese un valor en textBox3 
+                        await Task.Delay(5000);
+                        string input = textBox3.Text; // Asumimos que el usuario ingresa un número en textBox3
+                        textBox3.Text = "";
+                        label7.Text = "LISTO";
+                        memoria[operando] = int.Parse(input);
+                        break;
+                    case ESCRIBIR:
+                        textBox2.Text="Resultado: " + memoria[operando];
+                        break;
+                    case CARGAR:
+                        acumulador = memoria[operando];
+                        break;
+                    case ALMACENAR:
+                        memoria[operando] = acumulador;
+                        break;
+                    case SUMAR:
+                        acumulador += memoria[operando];
+                        break;
+                    case RESTAR:
+                        acumulador -= memoria[operando];
+                        break;
+                    case MULTIPLICAR:
+                        acumulador *= memoria[operando];
+                        break;
+                    case DIVIDIR:
+                        if (memoria[operando] != 0)
+                            acumulador /= memoria[operando];
+                        else
+                        {
+                            textBox2.Text = "Error: División por cero";
+                            linea = -1;
+                        }
+                        break;
+                    case SALTAR:
+                        linea = operando;
+                        break;
+                    case SALTARNEG:
+                        if (acumulador < 0)
+                            linea = operando;
+                        break;
+                    case SALTARCERO:
+                        if (acumulador == 0)
+                            linea = operando;
+                        break;
+                    case ALTO:
+                        linea = -1; // Terminar el programa
+                        break;
+                }
+            }
 
-
-            // 2049
-            // 2149
-            // 4150
-            // 3148
         }
     }
 }
