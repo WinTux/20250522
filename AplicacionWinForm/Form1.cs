@@ -4,6 +4,7 @@ namespace AplicacionWinForm
 {
     public partial class Form1 : Form
     {
+        private int posX = 0, posY = 0;
         public Form1()
         {
             InitializeComponent();
@@ -83,8 +84,9 @@ namespace AplicacionWinForm
             const int CARGAR = 20, ALMACENAR = 21;
             const int SUMAR = 30, RESTAR = 31, MULTIPLICAR = 32, DIVIDIR = 33;
             const int SALTAR = 40, SALTARNEG = 41, SALTARCERO = 42, ALTO = 43;
-            
-            while(linea >= 0){
+
+            while (linea >= 0)
+            {
                 instruccionActual = memoria[linea++];
                 codOperacion = instruccionActual / 100; //12
                 operando = instruccionActual % 100;//34
@@ -92,7 +94,7 @@ namespace AplicacionWinForm
                 {
                     case LEER:
                         // Simular lectura de un número
-                        label7.Text="Ingrese un número:";
+                        label7.Text = "Ingrese un número:";
                         // Esperar 5 segundos para que el usuario ingrese un valor en textBox3 
                         await Task.Delay(5000);
                         string input = textBox3.Text; // Asumimos que el usuario ingresa un número en textBox3
@@ -101,7 +103,7 @@ namespace AplicacionWinForm
                         memoria[operando] = int.Parse(input);
                         break;
                     case ESCRIBIR:
-                        textBox2.Text="Resultado: " + memoria[operando];
+                        textBox2.Text = "Resultado: " + memoria[operando];
                         break;
                     case CARGAR:
                         acumulador = memoria[operando];
@@ -144,6 +146,53 @@ namespace AplicacionWinForm
                 }
             }
 
+        }
+
+        private void dibujando_panel1(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            // Dibujar una linea color azul
+            Pen pen = new Pen(Color.Blue, 2);
+            g.DrawLine(pen, 0, 50, panel1.Width, panel1.Height);
+            Pen pen2 = new Pen(Color.Red, 10);
+            g.DrawLine(pen2, 0, panel1.Height, panel1.Width / 3, 0);
+            // Dibujar un círculo
+            Brush brush = new SolidBrush(Color.Green);
+            g.FillEllipse(brush, posX, posY, 80, 50);
+            g.DrawEllipse(pen, 10, 10, 100, 100);
+
+            Rectangle rect = new Rectangle(posX, posY, 80, 50);
+            Rectangle pared = new Rectangle(panel1.Width / 3 *2, 0, panel1.Width, panel1.Height);
+            if (pared.Contains(rect))
+            {
+                posX -= 5;
+            }
+            
+        }
+
+        private void teclaAbajo(object sender, KeyEventArgs e)
+        {
+            Console.WriteLine("Se presionó una tecla");
+            Debug.WriteLine("Se presionó una tecla (debug)");
+            switch(e.KeyCode)
+            {
+                case Keys.W:
+                    posY -= 5;
+                    break;
+                case Keys.S:
+                    posY += 5;
+                    break;
+                case Keys.A:
+                    posX -= 5;
+                    break;
+                case Keys.D:
+                    posX += 5;
+                    break;
+                default:
+                    Console.WriteLine("Tecla no reconocida");
+                    break;
+            }
+            panel1.Invalidate(); // Redibuja el panel para reflejar los cambios
         }
     }
 }

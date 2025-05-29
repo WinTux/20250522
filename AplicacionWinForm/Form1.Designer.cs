@@ -50,10 +50,12 @@
             textBox1 = new TextBox();
             label5 = new Label();
             tabPage2 = new TabPage();
+            panel1 = new Panel();
             tabPage3 = new TabPage();
             groupBox1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -258,13 +260,23 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(panel1);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(463, 597);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
+            tabPage2.Text = "Gráficos";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.LightGray;
+            panel1.Location = new Point(46, 42);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(365, 196);
+            panel1.TabIndex = 0;
+            panel1.Paint += dibujando_panel1;
             // 
             // tabPage3
             // 
@@ -288,13 +300,16 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
+            KeyPreview = true;
             Name = "Form1";
             Text = "Super Aplicación 3000XD & Nukkles";
+            KeyDown += teclaAbajo;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            tabPage2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -324,5 +339,6 @@
         private TextBox textBox2;
         private TextBox textBox3;
         private Label label7;
+        private Panel panel1;
     }
 }
