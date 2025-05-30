@@ -1,3 +1,4 @@
+using AplicacionWinForm.Modelos;
 using System.Diagnostics;
 
 namespace AplicacionWinForm
@@ -162,19 +163,19 @@ namespace AplicacionWinForm
             g.DrawEllipse(pen, 10, 10, 100, 100);
 
             Rectangle rect = new Rectangle(posX, posY, 80, 50);
-            Rectangle pared = new Rectangle(panel1.Width / 3 *2, 0, panel1.Width, panel1.Height);
+            Rectangle pared = new Rectangle(panel1.Width / 3 * 2, 0, panel1.Width, panel1.Height);
             if (pared.Contains(rect))
             {
                 posX -= 5;
             }
-            
+
         }
 
         private void teclaAbajo(object sender, KeyEventArgs e)
         {
             Console.WriteLine("Se presionó una tecla");
             Debug.WriteLine("Se presionó una tecla (debug)");
-            switch(e.KeyCode)
+            switch (e.KeyCode)
             {
                 case Keys.W:
                     posY -= 5;
@@ -193,6 +194,86 @@ namespace AplicacionWinForm
                     break;
             }
             panel1.Invalidate(); // Redibuja el panel para reflejar los cambios
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string texto = txtContenido.Text;
+            string rutaArchivo = "C:\\Users\\rusok\\Desktop\\archivoDeTexto.pepe";
+            if (File.Exists(rutaArchivo))
+            {
+                //File.Delete(rutaArchivo); // Elimina el archivo si ya existe
+                lblMensajes.Text = "El archivo ya existe. No se ha guardado el contenido.";
+                DialogResult result = MessageBox.Show("El archivo ya existe. No se ha guardado el contenido ¿Desea sobreescribir el archivo?", "Confirmación de sobreescritura", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    File.WriteAllText(rutaArchivo, texto);
+                    lblMensajes.Text = "Archivo sobreescrito en: " + rutaArchivo;
+                }
+                else
+                {
+                    lblMensajes.Text = "El archivo no ha sido modificado.";
+                }
+            }
+            else
+            {
+                File.WriteAllText(rutaArchivo, texto);
+                lblMensajes.Text = "Archivo guardado en: " + rutaArchivo;
+            }
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string rutaArchivo = "C:\\Users\\rusok\\Desktop\\archivoDeTexto.pepe";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Archivos de texto (*.txt)|*.txt|Configuraciones radicales (*.pepe)|*.pepe",
+                Title = "Seleccionar archivo de texto o configuración radical"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+                rutaArchivo = openFileDialog.FileName;
+            string contenido = File.ReadAllText(rutaArchivo);
+            if (string.IsNullOrEmpty(contenido))
+            {
+                lblMensajes.Text = "El archivo está vacío.";
+            }
+            else
+            {
+                lblMensajes.Text = "Contenido del archivo: " + Environment.NewLine + contenido;
+                txtContenidoCargado.Text = contenido;
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Persona persona = new Persona
+            {
+                id = 1,
+                nombre = "Pepe",
+                apellido = "Perales"
+            };
+            // Guardando en archivo
+            string rutaArchivo = "C:\\Users\\rusok\\Desktop\\persona.json";
+            if (File.Exists(rutaArchivo))
+            {
+                DialogResult result = MessageBox.Show("El archivo ya existe. ¿Desea sobreescribirlo?", "Confirmación de sobreescritura", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    File.WriteAllText(rutaArchivo, System.Text.Json.JsonSerializer.Serialize(persona));
+                    lblMensajes.Text = "Archivo sobreescrito en: " + rutaArchivo;
+                }
+                else
+                {
+                    lblMensajes.Text = "El archivo no ha sido modificado.";
+                }
+            }
+            else
+            {
+                File.WriteAllText(rutaArchivo, System.Text.Json.JsonSerializer.Serialize(persona));
+                lblMensajes.Text = "Archivo guardado en: " + rutaArchivo;
+            }
         }
     }
 }

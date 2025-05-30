@@ -52,10 +52,21 @@
             tabPage2 = new TabPage();
             panel1 = new Panel();
             tabPage3 = new TabPage();
+            groupBox3 = new GroupBox();
+            txtContenidoCargado = new TextBox();
+            button7 = new Button();
+            groupBox2 = new GroupBox();
+            lblMensajes = new Label();
+            button6 = new Button();
+            txtContenido = new TextBox();
+            button8 = new Button();
             groupBox1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            tabPage3.SuspendLayout();
+            groupBox3.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -280,12 +291,92 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(groupBox3);
+            tabPage3.Controls.Add(groupBox2);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(463, 597);
             tabPage3.TabIndex = 2;
-            tabPage3.Text = "tabPage3";
+            tabPage3.Text = "Archivos";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(txtContenidoCargado);
+            groupBox3.Controls.Add(button7);
+            groupBox3.Location = new Point(35, 318);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(407, 249);
+            groupBox3.TabIndex = 1;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Lectura de archivos";
+            // 
+            // txtContenidoCargado
+            // 
+            txtContenidoCargado.Location = new Point(24, 79);
+            txtContenidoCargado.Multiline = true;
+            txtContenidoCargado.Name = "txtContenidoCargado";
+            txtContenidoCargado.Size = new Size(354, 154);
+            txtContenidoCargado.TabIndex = 1;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(24, 39);
+            button7.Name = "button7";
+            button7.Size = new Size(75, 23);
+            button7.TabIndex = 0;
+            button7.Text = "Cargar";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(button8);
+            groupBox2.Controls.Add(lblMensajes);
+            groupBox2.Controls.Add(button6);
+            groupBox2.Controls.Add(txtContenido);
+            groupBox2.Location = new Point(25, 27);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(417, 241);
+            groupBox2.TabIndex = 0;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Escritura de archivos";
+            // 
+            // lblMensajes
+            // 
+            lblMensajes.AutoSize = true;
+            lblMensajes.Location = new Point(21, 95);
+            lblMensajes.Name = "lblMensajes";
+            lblMensajes.Size = new Size(48, 15);
+            lblMensajes.TabIndex = 2;
+            lblMensajes.Text = "Estado: ";
+            // 
+            // button6
+            // 
+            button6.Location = new Point(313, 64);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 23);
+            button6.TabIndex = 1;
+            button6.Text = "Crear";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // txtContenido
+            // 
+            txtContenido.Location = new Point(21, 35);
+            txtContenido.Name = "txtContenido";
+            txtContenido.Size = new Size(367, 23);
+            txtContenido.TabIndex = 0;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(23, 139);
+            button8.Name = "button8";
+            button8.Size = new Size(177, 23);
+            button8.TabIndex = 3;
+            button8.Text = "Crear archivo objeto";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // Form1
             // 
@@ -310,6 +401,11 @@
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -340,5 +436,13 @@
         private TextBox textBox3;
         private Label label7;
         private Panel panel1;
+        private GroupBox groupBox2;
+        private Button button6;
+        private TextBox txtContenido;
+        private Label lblMensajes;
+        private GroupBox groupBox3;
+        private TextBox txtContenidoCargado;
+        private Button button7;
+        private Button button8;
     }
 }
